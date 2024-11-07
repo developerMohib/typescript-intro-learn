@@ -116,16 +116,16 @@
         }
     }
 
-    interface Student { name: string, email: string, address: string }
-    const enrollStudent = courseForStudent<Student>({ name: "Arif", email: "a@gmail.com", address: "Dhaka" })
+    interface Student { id: number; name: string; email: string; address?: string }
+    const enrollStudent = courseForStudent<Student>({ id: 33, name: "Arif", email: "a@gmail.com", address: "Dhaka" })
     console.log("enroll student", enrollStudent);
 
 
     // time stamp
 
-    const addTimeStamp = <T>(todaysFile: T): T & {date : Date } => {
+    const addTimeStamp = <T>(todaysFile: T): T & { date: Date } => {
         const date = new Date();
-        console.log('date',date)
+        console.log('date', date)
         return {
             ...todaysFile, date
         }
@@ -136,16 +136,36 @@
     console.log('document ', addTimeStamp<TodaysFile>(document))
 
 
+    // constraints
+
+    // const checkoutCourse = <T extends { name: string; email: string; id: number }>(student: T) : T & {name : string; email : string; id : number; } => {
+    //     const course = "Next Level Web Development";
+    //     return { ...student, course }
+    // }
+
+    const checkoutCourse = <T extends Student >(student: T) : T & {course : string;} => {
+        const course = "Next Level Web Development";
+        return { ...student, course }
+    }
+
+    const student1 = checkoutCourse<Student>({ id: 22, name: "Sharif", email: "s@gmail.com", address: "sp bangla" })
+    const student2 = checkoutCourse({ id: 45, name: "Sharif", email: "s@gmail.com", address: "sp bangla" })
 
 
+    interface Farmer {name : string; email : string; id: number; location?: string ; isEducated?: boolean}
 
+    const beFarmer =<T> (farmer : T) => {
+return farmer ;
+    }
 
-
-    
-
-
-
-
+const farmer1 = {
+    name : "Azizul",
+    email : "farmer@gmail.com",
+    id : 45,
+    location : "bariGhor",
+    isEducated : false
+}
+console.log(beFarmer<Farmer>(farmer1))
 
     // end
 }

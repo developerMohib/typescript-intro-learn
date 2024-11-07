@@ -72,7 +72,7 @@ var _a, _b;
         const course = "Next Level Web Development";
         return Object.assign(Object.assign({}, student), { course });
     };
-    const enrollStudent = courseForStudent({ name: "Arif", email: "a@gmail.com", address: "Dhaka" });
+    const enrollStudent = courseForStudent({ id: 33, name: "Arif", email: "a@gmail.com", address: "Dhaka" });
     console.log("enroll student", enrollStudent);
     // time stamp
     const addTimeStamp = (todaysFile) => {
@@ -82,5 +82,27 @@ var _a, _b;
     };
     const document = { creator: "Abul bhai", title: "There is typescript", content: "Function interface details", isStudent: true };
     console.log('document ', addTimeStamp(document));
+    // constraints
+    // const checkoutCourse = <T extends { name: string; email: string; id: number }>(student: T) : T & {name : string; email : string; id : number; } => {
+    //     const course = "Next Level Web Development";
+    //     return { ...student, course }
+    // }
+    const checkoutCourse = (student) => {
+        const course = "Next Level Web Development";
+        return Object.assign(Object.assign({}, student), { course });
+    };
+    const student1 = checkoutCourse({ id: 22, name: "Sharif", email: "s@gmail.com", address: "sp bangla" });
+    const student2 = checkoutCourse({ id: 45, name: "Sharif", email: "s@gmail.com", address: "sp bangla" });
+    const beFarmer = (farmer) => {
+        return farmer;
+    };
+    const farmer1 = {
+        name: "Azizul",
+        email: "farmer@gmail.com",
+        id: 45,
+        location: "bariGhor",
+        isEducated: false
+    };
+    console.log(beFarmer(farmer1));
     // end
 }
