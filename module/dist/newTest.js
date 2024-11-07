@@ -67,5 +67,20 @@ var _a, _b;
         }
     };
     console.log("rich developer", (_a = richDeveloper.bike) === null || _a === void 0 ? void 0 : _a.model, (_b = richDeveloper.bike) === null || _b === void 0 ? void 0 : _b.buyingPrice);
+    // Generic with function 
+    const courseForStudent = (student) => {
+        const course = "Next Level Web Development";
+        return Object.assign(Object.assign({}, student), { course });
+    };
+    const enrollStudent = courseForStudent({ name: "Arif", email: "a@gmail.com", address: "Dhaka" });
+    console.log("enroll student", enrollStudent);
+    // time stamp
+    const addTimeStamp = (todaysFile) => {
+        const date = new Date();
+        console.log('date', date);
+        return Object.assign(Object.assign({}, todaysFile), { date });
+    };
+    const document = { creator: "Abul bhai", title: "There is typescript", content: "Function interface details", isStudent: true };
+    console.log('document ', addTimeStamp(document));
     // end
 }

@@ -80,30 +80,70 @@
             price: 2100
         },
     }
-console.log("poor developer", poorDeveloper.name);
 
-interface Bike {name : string, model : string, isNew : boolean, buyingPrice : number}
-const richDeveloper: Developer<SmartWatch, Bike> = {
-    name: "Mohim",
-    computer: {
-        brand: "Apple",
-        model: "T490",
-        isNew: false,
-        buyingPrice: 3000
-    },
-    smartWatch: {
-        name: "Apple",
-        model: "LS02",
-        price: 9100
-    },
-    bike : {
-        name : "Yamaha",
-        model : "Japani 80",
-        isNew : true,
-        buyingPrice : 6900000
+    console.log("poor developer", poorDeveloper.name);
+
+    interface Bike { name: string, model: string, isNew: boolean, buyingPrice: number }
+    const richDeveloper: Developer<SmartWatch, Bike> = {
+        name: "Mohim",
+        computer: {
+            brand: "Apple",
+            model: "T490",
+            isNew: false,
+            buyingPrice: 3000
+        },
+        smartWatch: {
+            name: "Apple",
+            model: "LS02",
+            price: 9100
+        },
+        bike: {
+            name: "Yamaha",
+            model: "Japani 80",
+            isNew: true,
+            buyingPrice: 6900000
+        }
     }
-}
-console.log("rich developer", richDeveloper.bike?.model, richDeveloper.bike?.buyingPrice);
+    console.log("rich developer", richDeveloper.bike?.model, richDeveloper.bike?.buyingPrice);
+
+
+    // Generic with function 
+
+    const courseForStudent = <T>(student: T): T & { course: string } => {
+        const course = "Next Level Web Development";
+        return {
+            ...student, course
+        }
+    }
+
+    interface Student { name: string, email: string, address: string }
+    const enrollStudent = courseForStudent<Student>({ name: "Arif", email: "a@gmail.com", address: "Dhaka" })
+    console.log("enroll student", enrollStudent);
+
+
+    // time stamp
+
+    const addTimeStamp = <T>(todaysFile: T): T & {date : Date } => {
+        const date = new Date();
+        console.log('date',date)
+        return {
+            ...todaysFile, date
+        }
+    }
+    interface TodaysFile { creator: string, isStudent: boolean, title: string, content: string }
+
+    const document = { creator: "Abul bhai", title: "There is typescript", content: "Function interface details", isStudent: true }
+    console.log('document ', addTimeStamp<TodaysFile>(document))
+
+
+
+
+
+
+
+    
+
+
 
 
 
