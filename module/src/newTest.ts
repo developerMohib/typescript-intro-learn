@@ -143,7 +143,7 @@
     //     return { ...student, course }
     // }
 
-    const checkoutCourse = <T extends Student >(student: T) : T & {course : string;} => {
+    const checkoutCourse = <T extends Student>(student: T): T & { course: string; } => {
         const course = "Next Level Web Development";
         return { ...student, course }
     }
@@ -152,20 +152,70 @@
     const student2 = checkoutCourse({ id: 45, name: "Sharif", email: "s@gmail.com", address: "sp bangla" })
 
 
-    interface Farmer {name : string; email : string; id: number; location?: string ; isEducated?: boolean}
+    interface Farmer { name: string; email: string; id: number; location?: string; isEducated?: boolean }
 
-    const beFarmer =<T> (farmer : T) => {
-return farmer ;
+    const beFarmer = <T>(farmer: T) => {
+        return farmer;
     }
 
-const farmer1 = {
-    name : "Azizul",
-    email : "farmer@gmail.com",
-    id : 45,
-    location : "bariGhor",
-    isEducated : false
-}
-console.log(beFarmer<Farmer>(farmer1))
+    const farmer1 = {
+        name: "Azizul",
+        email: "farmer@gmail.com",
+        id: 45,
+        location: "bariGhor",
+        isEducated: false
+    }
+    console.log(beFarmer<Farmer>(farmer1))
+
+
+    // Generice constraint with keyof operator
+
+    type Vehicle = {
+        bike: string;
+        car: string;
+        ship: string
+    }
+    type Owner = "Bike" | "Car" | "Ship";  // menually key set 
+    type Owner2 = keyof Vehicle;
+    const ami: Owner2 = "ship"
+    console.log("Owner 2", ami);
+
+    // Dynamically set key of value in function
+
+    type User131 = {
+        name: string;
+        email: string;
+        isStudent: boolean;
+        id: number;
+    }
+
+    const user131: User131 = { name: "abul biri", email: "abul@gmail.com", isStudent: true, id: 20 }
+    const registerUser = <T, X extends keyof T>(obj: T, key: X): T[X] => {
+        return obj[key]
+    }
+    const result = registerUser(user131, "id")
+    console.log("Here you will get value that u pass", result)
+
+    // use generic constraint with key of by interface
+
+    interface User502 {
+        name: string,
+        email: string,
+        id: number,
+        isCoder: boolean
+    }
+
+    const user502: User502 = { name: "Khan Shaheb", email: "khan@gmail.com", id: 502, isCoder: true }
+
+    const registerUser502 = <T, K extends keyof T>(obj: T, key: K): T[K] => {
+        return obj[key]
+    }
+    const result502 = registerUser502(user502, "email")
+    console.log(result502)
+
+
+
+
 
     // end
 }

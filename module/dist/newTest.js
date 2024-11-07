@@ -104,5 +104,19 @@ var _a, _b;
         isEducated: false
     };
     console.log(beFarmer(farmer1));
+    const ami = "ship";
+    console.log("Owner 2", ami);
+    const user131 = { name: "abul biri", email: "abul@gmail.com", isStudent: true, id: 20 };
+    const registerUser = (obj, key) => {
+        return obj[key];
+    };
+    const result = registerUser(user131, "id");
+    console.log("Here you will get value that u pass", result);
+    const user502 = { name: "Khan Shaheb", email: "khan@gmail.com", id: 502, isCoder: true };
+    const registerUser502 = (obj, key) => {
+        return obj[key];
+    };
+    const result502 = registerUser502(user502, "email");
+    console.log(result502);
     // end
 }

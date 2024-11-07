@@ -55,9 +55,12 @@ console.log(fullstackDeveloper, "Full stack");
 const myFriends = ["Rahat", "Ali", "Boltu", "Ami"];
 function greetingFriends(...friends) {
     // here console
-    friends.forEach((friend) => console.log(`Hi my ${friend}`));
+    friends === null || friends === void 0 ? void 0 : friends.forEach((friend) => console.log(`Hi my ${friend}`));
+    return `You have greeted ${friends === null || friends === void 0 ? void 0 : friends.length} friends.`;
 }
-console.log(greetingFriends("Rahat", "Ali", "Boltu", "Ami"));
+// Calling the function without console.log
+greetingFriends(...myFriends);
+console.log("my friedns 104 ", greetingFriends());
 // type assertion 
 let something;
 something = "Next level web development";

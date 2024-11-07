@@ -94,11 +94,16 @@ console.log(fullstackDeveloper, "Full stack");
 
 const myFriends : string[] = ["Rahat","Ali","Boltu", "Ami"];
 
-function greetingFriends (...friends:string[]) {
+function greetingFriends (...friends:string[]) : string  {
     // here console
-    friends.forEach((friend : string) => console.log(`Hi my ${friend}`))
+    friends?.forEach((friend : string) => console.log(`Hi my ${friend}`))
+    return `You have greeted ${friends?.length} friends.`;
+
 }
-console.log(greetingFriends("Rahat","Ali","Boltu", "Ami"));
+// Calling the function without console.log
+greetingFriends(...myFriends);
+
+console.log ("my friedns 104 ",  greetingFriends());
 
 
 // type assertion 
