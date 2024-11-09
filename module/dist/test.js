@@ -62,13 +62,38 @@ console.log(name2);
         }
     });
     notifyUser();
-    // to da fetching data
     const getToDoPost = () => __awaiter(void 0, void 0, void 0, function* () {
-        const todoPost = yield fetch("https://jsonplaceholder.typicode.com/posts");
-        const post = yield todoPost.json();
-        console.log('post ', post);
-        return post;
+        try {
+            const todoPost = yield fetch("https://jsonplaceholder.typicode.com/posts");
+            const post = yield todoPost.json();
+            console.log('post ', post);
+            return post;
+        }
+        catch (error) {
+            console.log(error.message);
+            return [];
+        }
     });
     getToDoPost();
+    const area = {
+        height: 40,
+        width: 50,
+        depth: 90
+    };
+    console.log('area', area);
+    // custom type guard to check string 
+    const isString = (value) => {
+        return typeof value === "string";
+    };
+    const toMakeUpperCase = (value) => {
+        if (isString(value)) {
+            console.log("Your value is " + value);
+            return value.toUpperCase();
+        }
+        else {
+            return "Your value is not a string";
+        }
+    };
+    toMakeUpperCase("ami tumake vaala fai bujco");
     // end here
 }

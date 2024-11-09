@@ -73,6 +73,7 @@ console.log(name2)
     }
     notifyUser()
 
+
     // to da fetching data
     interface Post {
         body: string;
@@ -81,16 +82,80 @@ console.log(name2)
         userId: number;
     }
 
-    const getToDoPost = async () : Promise<string> => {
-        const todoPost = await fetch("https://jsonplaceholder.typicode.com/posts");
-        const post = await todoPost.json()
-        console.log('post ', post)
-        return post
+    const getToDoPost = async (): Promise<Post[]> => {
+        try {
+            const todoPost = await fetch("https://jsonplaceholder.typicode.com/posts");
+            const post : Post[] = await todoPost.json()
+            console.log('post ', post)
+            return post
+        } catch (error) {
+            console.log((error as CustomError).message)
+            return []
+        }
     }
     getToDoPost()
 
 
+    // conditional type 
 
+    type Boniyad = {
+        car: string;
+        bike: string;
+        ship: string;
+        helicopter: string
+    }
+
+    type Emmigrant = {
+        isWorker: true;
+        from: string;
+        stay: number;
+    }
+
+    type CheckBoniyadi<T, X> = X extends keyof T ? true : false;
+    type HasBike = CheckBoniyadi<Boniyad, "bike">
+    type Local = CheckBoniyadi<Emmigrant, "from">
+
+
+    // mapped types 
+
+    type Area = {
+        height: number;
+        width: number;
+        depth: number;
+    }
+    type AreaString<T> = {
+        [key in keyof T]: T[key]
+    }
+
+    const area: AreaString<Area> = {
+        height: 40,
+        width: 50,
+        depth: 90
+    }
+    console.log('area', area)
+
+
+    // custom type guard to check string 
+    const isString = (value: unknown): value is string => {
+        return typeof value === "string"
+    }
+
+    const toMakeUpperCase = (value: unknown): string => {
+        if (isString(value)) {
+            console.log("Your value is " + value);
+            return value.toUpperCase();
+        } else {
+            return "Your value is not a string";
+        }
+    };
+
+    toMakeUpperCase("ami tumare vaala fai bujco")
+
+
+
+
+
+    
 
 
 
