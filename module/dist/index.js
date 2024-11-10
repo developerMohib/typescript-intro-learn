@@ -4,10 +4,12 @@ console.log(course);
 const a = 50;
 const b = 60;
 console.log(a + b);
-let button = document.getElementById("button");
-button === null || button === void 0 ? void 0 : button.addEventListener("click", function () {
+let button = document.getElementById("myButton");
+button === null || button === void 0 ? void 0 : button.addEventListener("click", alertFunction);
+function alertFunction() {
     console.log('hello world');
-});
+    alert("Hello! I am an alert box!!");
+}
 // Normal function
 function add(num1 = 0, num2 = 0) {
     return (`Here the two number addition ${num1 + num2}`);

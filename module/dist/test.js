@@ -94,6 +94,6 @@ console.log(name2);
             return "Your value is not a string";
         }
     };
-    toMakeUpperCase("ami tumake vaala fai bujco");
+    toMakeUpperCase("ami tumare vaala fai bujco");
     // end here
 }

@@ -4,12 +4,13 @@ console.log(course)
 const a: number = 50;
 const b: number = 60;
 console.log(a + b)
-let button = document.getElementById("button");
+let button = document.getElementById("myButton");
 
-button?.addEventListener("click", function () {
+button?.addEventListener("click", alertFunction)
+function alertFunction() {
     console.log('hello world')
-
-})
+    alert("Hello! I am an alert box!!");
+}
 
 // Normal function
 function add(num1: number = 0, num2: number = 0): string {
