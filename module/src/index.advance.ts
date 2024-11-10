@@ -66,3 +66,64 @@ class Student extends ParentPerson {
 }
 const student = new Student("Mohib", "std@gmail.com", "sunamganj", "student", 24, true, 2);
 student.aboutStudent(12, 12)
+
+
+// instanceof guard
+
+class Animal {
+    name: string;
+    species: string;
+
+    constructor(name: string, species: string) {
+        this.name = name;
+        this.species = species;
+    }
+    makeSound() {
+        console.log('Here this parent sound');
+    }
+}
+
+// dog class
+class Dog extends Animal {
+    constructor(name: string, species: string) {
+        super(name, species)
+    }
+    makeBark() {
+        console.log(`${this.name} is barking`)
+    }
+}
+
+// cat class
+class Cat extends Animal {
+    constructor(name: string, species: string) {
+        super(name, species)
+    }
+    makeMeaw() {
+        console.log(`${this.name} is meawing`);
+    }
+}
+
+// instanceof guard here
+const isDog = (animal: Animal): animal is Dog => {
+    return animal instanceof Dog
+}
+const isCat = (animal: Animal): animal is Cat => {
+    return animal instanceof Cat
+}
+
+const getAnimal = (animal: Animal) => {
+    if (isDog(animal)) {
+        animal.makeBark()
+    } else if (isCat(animal)) {
+        animal.makeMeaw()
+    } else {
+        console.log(animal.name);
+    }
+}
+
+// 
+const cat = new Cat("Cat bhai", "south asia")
+const dog = new Dog("Dog bhai", "south asia")
+
+getAnimal(dog)
+getAnimal(cat)
