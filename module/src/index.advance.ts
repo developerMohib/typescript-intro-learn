@@ -127,3 +127,42 @@ const dog = new Dog("Dog bhai", "south asia")
 
 getAnimal(dog)
 getAnimal(cat)
+
+
+// access modifier and getter and setter
+
+class BankAccount {
+    public name: string;
+    readonly id: number;
+    protected _balance: number;
+
+    constructor(name: string, id: number, _balance: number) {
+        this.name = name,
+            this.id = id,
+            this._balance = _balance
+    }
+
+    // add money 
+    // addMoney(amount: number) {
+    //     this._balance = this._balance + amount
+    // }
+
+    set deposit (amount : number){
+        this._balance = this._balance + amount 
+    }
+
+    // get money 
+    // getMoney() {
+    //     return this._balance
+    // }
+
+    get balance (){
+        return this._balance ;
+    }
+
+}
+
+const amarAccount = new BankAccount("mulla lobon", 222, 50)
+amarAccount.deposit = 120
+
+console.log("amar account", amarAccount)

@@ -7,7 +7,6 @@ console.log(a + b);
 let button = document.getElementById("myButton");
 button === null || button === void 0 ? void 0 : button.addEventListener("click", alertFunction);
 function alertFunction() {
-    console.log('hello world');
     alert("Hello! I am an alert box!!");
 }
 // Normal function

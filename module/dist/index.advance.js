@@ -104,3 +104,30 @@ const cat = new Cat("Cat bhai", "south asia");
 const dog = new Dog("Dog bhai", "south asia");
 getAnimal(dog);
 getAnimal(cat);
+// access modifier 
+class BankAccount {
+    constructor(name, id, _balance) {
+        this.name = name,
+            this.id = id,
+            this._balance = _balance;
+    }
+    // add money 
+    // addMoney(amount: number) {
+    //     this._balance = this._balance + amount
+    // }
+    set deposit(amount) {
+        this._balance = this._balance + amount;
+    }
+    // get money 
+    // getMoney() {
+    //     return this._balance
+    // }
+    get balance() {
+        return this._balance;
+    }
+}
+const amarAccount = new BankAccount("mulla lobon", 222, 50);
+amarAccount.deposit = 120;
+// amarAccount.deposit
+console.log("amar account", amarAccount);
+console.log("amar account", amarAccount.balance);

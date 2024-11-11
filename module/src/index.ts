@@ -8,7 +8,6 @@ let button = document.getElementById("myButton");
 
 button?.addEventListener("click", alertFunction)
 function alertFunction() {
-    console.log('hello world')
     alert("Hello! I am an alert box!!");
 }
 
