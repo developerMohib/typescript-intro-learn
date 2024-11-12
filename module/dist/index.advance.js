@@ -104,7 +104,7 @@ const cat = new Cat("Cat bhai", "south asia");
 const dog = new Dog("Dog bhai", "south asia");
 getAnimal(dog);
 getAnimal(cat);
-// access modifier 
+// access modifier and getter and setter
 class BankAccount {
     constructor(name, id, _balance) {
         this.name = name,
@@ -128,6 +128,38 @@ class BankAccount {
 }
 const amarAccount = new BankAccount("mulla lobon", 222, 50);
 amarAccount.deposit = 120;
-// amarAccount.deposit
 console.log("amar account", amarAccount);
-console.log("amar account", amarAccount.balance);
+// polymorphism
+class Shape {
+    getArea() {
+        return 0;
+    }
+}
+class Circle extends Shape {
+    constructor(radius) {
+        super();
+        this.radius = radius;
+    }
+    getArea() {
+        return Math.PI * this.radius * this.radius;
+    }
+}
+class Tringle extends Shape {
+    constructor(height, width) {
+        super();
+        this.height = height;
+        this.width = width;
+    }
+    getArea() {
+        return this.height * this.width;
+    }
+}
+const shapeArea = (params) => {
+    const area = params.getArea();
+    return area;
+};
+const shape = new Shape();
+const circle = new Circle(10);
+const tringle = new Tringle(10, 10);
+console.log('circle', shapeArea(circle));
+console.log('circle', shapeArea(tringle));

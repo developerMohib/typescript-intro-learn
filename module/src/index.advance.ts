@@ -147,8 +147,8 @@ class BankAccount {
     //     this._balance = this._balance + amount
     // }
 
-    set deposit (amount : number){
-        this._balance = this._balance + amount 
+    set deposit(amount: number) {
+        this._balance = this._balance + amount
     }
 
     // get money 
@@ -156,8 +156,8 @@ class BankAccount {
     //     return this._balance
     // }
 
-    get balance (){
-        return this._balance ;
+    get balance() {
+        return this._balance;
     }
 
 }
@@ -166,3 +166,47 @@ const amarAccount = new BankAccount("mulla lobon", 222, 50)
 amarAccount.deposit = 120
 
 console.log("amar account", amarAccount)
+
+
+// polymorphism
+
+class Shape {
+    getArea(): number {
+        return 0
+    }
+}
+
+class Circle extends Shape {
+    radius: number;
+    constructor(radius: number) {
+        super()
+        this.radius = radius
+    }
+    getArea(): number {
+        return Math.PI * this.radius * this.radius
+    }
+}
+
+class Tringle extends Shape {
+    height: number;
+    width: number;
+
+    constructor(height: number, width: number) {
+        super()
+        this.height = height;
+        this.width = width;
+    }
+    getArea(): number {
+        return this.height * this.width
+    }
+}
+const shapeArea = (params: Shape): number => {
+    const area: number = params.getArea()
+    return area;
+}
+
+const shape = new Shape();
+const circle = new Circle(10)
+const tringle = new Tringle(10, 10)
+console.log('circle', shapeArea(circle))
+console.log('tringle', shapeArea(tringle))
