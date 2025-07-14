@@ -54,11 +54,28 @@
         { make: "Bangnla bazarer maker", model: "Civic", year: 2018 },
         { make: "workshop engineer bangladesh", model: "X5", year: 2012 },
         { make: "ghorer bazar", model: "Model 3", year: 2020 },
-        { make: "dhanmondi 32", model: "Mustang", year: 2016 }
+        { make: "dhanmondi 32", model: "Mustang", year: 2016 },
     ];
     function sortedCar(car) {
         const carResult = car.sort((a, b) => a.year - b.year);
         return carResult;
     }
-    console.log('car sort', sortedCar(cars));
+    console.log("car sort", sortedCar(cars));
+    const abulBhaiKeKhujo = [
+        { name: "abul bhai", age: 71 },
+        { name: "oggato jubok", age: 55 },
+    ];
+    function bhaiKeKhujoo(luk, nameDen, newAge) {
+        const resultBhai = luk.map((person) => {
+            if (person.name === nameDen) {
+                return Object.assign(Object.assign({}, person), { age: newAge });
+            }
+            else {
+                // chat gpt ke bollam undefiend kno ase then bollo eikhane return lagbe, 
+                return person;
+            }
+        });
+        return resultBhai;
+    }
+    console.log(bhaiKeKhujoo(abulBhaiKeKhujo, "abul bhai", 50));
 }

@@ -79,29 +79,52 @@ Write three functions: one to square a number, one to double a number, and one t
   }
   console.log("compose ", composeAll(5));
 
-
   /**
    * 4.Task: Sorting Objects
 Create an array of objects representing cars with properties like make, model, and year. Write a function to sort the array of cars by the year of manufacture in ascending order. Print the sorted array.
 
    */
-interface Car {make:string,model:string,year:number}
-const cars: Car[] = [
-  { make: "Gulistaner maker", model: "Corolla", year: 2015 },
-  { make: "Bangnla bazarer maker", model: "Civic", year: 2018 },
-  { make: "workshop engineer bangladesh", model: "X5", year: 2012 },
-  { make: "ghorer bazar", model: "Model 3", year: 2020 },
-  { make: "dhanmondi 32", model: "Mustang", year: 2016 }
-];
+  interface Car {
+    make: string;
+    model: string;
+    year: number;
+  }
+  const cars: Car[] = [
+    { make: "Gulistaner maker", model: "Corolla", year: 2015 },
+    { make: "Bangnla bazarer maker", model: "Civic", year: 2018 },
+    { make: "workshop engineer bangladesh", model: "X5", year: 2012 },
+    { make: "ghorer bazar", model: "Model 3", year: 2020 },
+    { make: "dhanmondi 32", model: "Mustang", year: 2016 },
+  ];
 
-function sortedCar (car : Car[]){
-    const carResult = car.sort((a,b)=>a.year - b.year)
-    return carResult
-}
-console.log('car sort',sortedCar(cars))
+  function sortedCar(car: Car[]) {
+    const carResult = car.sort((a, b) => a.year - b.year);
+    return carResult;
+  }
+  console.log("car sort", sortedCar(cars));
 
-
-
-
-
+  /**
+ * 5.Task: Find and Modify
+Write a function that searches an array of objects for a specific person by name. If found, modify their age property. Print the updated array.
+ */
+  interface IPerson {
+    name: string;
+    age: number;
+  }
+  const abulBhaiKeKhujo: IPerson[] = [
+    { name: "abul bhai", age: 71 },
+    { name: "oggato jubok", age: 55 },
+  ];
+  function bhaiKeKhujoo(luk: IPerson[], nameDen: string, newAge: number) {
+    const resultBhai = luk.map((person) => {
+      if (person.name === nameDen) {
+        return { ...person, age: newAge };
+      }else{
+        // chat gpt ke bollam undefiend kno ase then bollo eikhane return lagbe, 
+        return person
+      }
+    });
+    return resultBhai;
+  }
+  console.log(bhaiKeKhujoo(abulBhaiKeKhujo, "abul bhai", 50));
 }
