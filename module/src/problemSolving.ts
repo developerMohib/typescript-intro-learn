@@ -25,17 +25,36 @@ Create an array of objects, each representing a person with properties like name
     console.log("only male", onlyMale);
     const maleNames = onlyMale.map((male) => male.name);
 
-    return maleNames;
+    return maleNames || [];
   }
   const result = getMaleNames(people);
   console.log(" result ", result);
 
+  /**
+ * 2.Task: Object Manipulation
+Create an array of objects representing books with properties like title, author, and year. Write a function that takes the array and returns a new array with only the book titles. Print the result
 
-/**
- * 
  */
 
-
-
-
+  interface Book {
+    title: string;
+    author: string;
+    year: number;
+  }
+  const bookArray: Book[] = [
+    { title: "akta hoilei hoilo", author: "den bhai den", year: 2025 },
+    { title: "jooy bangla 7 minutes", author: "are ami", year: 2024 },
+    {
+      title:
+        "psg 3 goal khaway nihoto dhanmondi 32 er oggato juboker sondan pawa gelo",
+      author: "nam dia ki oibo",
+      year: 2023,
+    },
+  ];
+  function bookTitle(booklist: Book[]): string[] {
+    const result = booklist.map((book) => book.title);
+    return result || [];
+  }
+  const bookResult = bookTitle(bookArray);
+  console.log("book title", bookResult);
 }
