@@ -78,4 +78,30 @@ Write three functions: one to square a number, one to double a number, and one t
     return addFive(double(square(num)));
   }
   console.log("compose ", composeAll(5));
+
+
+  /**
+   * 4.Task: Sorting Objects
+Create an array of objects representing cars with properties like make, model, and year. Write a function to sort the array of cars by the year of manufacture in ascending order. Print the sorted array.
+
+   */
+interface Car {make:string,model:string,year:number}
+const cars: Car[] = [
+  { make: "Gulistaner maker", model: "Corolla", year: 2015 },
+  { make: "Bangnla bazarer maker", model: "Civic", year: 2018 },
+  { make: "workshop engineer bangladesh", model: "X5", year: 2012 },
+  { make: "ghorer bazar", model: "Model 3", year: 2020 },
+  { make: "dhanmondi 32", model: "Mustang", year: 2016 }
+];
+
+function sortedCar (car : Car[]){
+    const carResult = car.sort((a,b)=>a.year - b.year)
+    return carResult
+}
+console.log('car sort',sortedCar(cars))
+
+
+
+
+
 }
