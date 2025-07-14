@@ -162,4 +162,4 @@ const shape = new Shape();
 const circle = new Circle(10);
 const tringle = new Tringle(10, 10);
 console.log('circle', shapeArea(circle));
-console.log('circle', shapeArea(tringle));
+console.log('tringle', shapeArea(tringle));
