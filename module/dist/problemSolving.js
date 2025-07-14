@@ -30,4 +30,23 @@
     }
     const bookResult = bookTitle(bookArray);
     console.log("book title", bookResult);
+    /**
+     *
+     * 3.Task: Function Composition
+  Write three functions: one to square a number, one to double a number, and one to add 5 to a number. Compose these functions to create a new function that squares a number, doubles the result, and then adds 5.
+     */
+    function square(num = 0) {
+        return num * num;
+    }
+    function double(num = 0) {
+        return num * 2;
+    }
+    function addFive(num = 0) {
+        return num + 5;
+    }
+    function composeAll(num = 0) {
+        // jeheto 5 add kora last a tai sese call korte age likte hobe, pore double
+        return addFive(double(square(num)));
+    }
+    console.log("compose ", composeAll(5));
 }
