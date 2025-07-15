@@ -149,8 +149,10 @@ Example: Happy New Year
 
   const getYear: number = 2020;
   const leapYearChecker = (year: number) => {
-    if (year / 4 === 0) {
-      return "Happy new year";
+    if (year % 4 === 0) {
+      if(year % 100 !==0 || year % 400 === 0){
+        return "Happy New Leap Year"
+      }else{return "Not leap Year";}
     } else {
       return "Not leap Year";
     }
