@@ -148,14 +148,46 @@ Example: Happy New Year
   */
 
   const getYear: number = 2020;
-  const leapYearChecker = (year: number) => {
+  const leapYearChecker = (year: number): string => {
     if (year % 4 === 0) {
-      if(year % 100 !==0 || year % 400 === 0){
-        return "Happy New Leap Year"
-      }else{return "Not leap Year";}
+      if (year % 100 !== 0 || year % 400 === 0) {
+        return "Happy New Leap Year";
+      } else {
+        return "Not leap Year";
+      }
     } else {
       return "Not leap Year";
     }
   };
   console.log(leapYearChecker(getYear));
+
+  /**
+   * 8. Task: Unique Values
+Create an array of numbers with some duplicate values. Write a function to filter out the duplicate values and return a new array with only unique numbers. Print the result.
+
+   */
+  const duplicateNumberArray: number[] = [2, 3, 2, 5, 6, 4, 5, 6];
+  const duplicateChecker = (arr: number[]): number[] => {
+    const uniqueArray = arr.filter((num, index) => arr.indexOf(num) === index);
+    return uniqueArray || [];
+  };
+  console.log(duplicateChecker(duplicateNumberArray));
+
+  // using loop
+  const duplicateCheckerByLoop = (arr: number[]): number[] => {
+    let uniqueArray: number[] = [];
+    for (const element of arr) {
+      if (!uniqueArray.includes(element)) {
+        uniqueArray.push(element);
+      }
+    }
+    return uniqueArray;
+  };
+  console.log(duplicateCheckerByLoop(duplicateNumberArray));
+
+  // find a new thing that's more efecients
+  const setUniqueArray = (arr: number[]): number[] => {
+    return [...new Set(arr)];
+  };
+  console.log(setUniqueArray(duplicateNumberArray))
 }

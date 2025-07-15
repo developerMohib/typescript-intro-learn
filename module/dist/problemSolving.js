@@ -109,4 +109,31 @@
         }
     };
     console.log(leapYearChecker(getYear));
+    /**
+     * 8. Task: Unique Values
+  Create an array of numbers with some duplicate values. Write a function to filter out the duplicate values and return a new array with only unique numbers. Print the result.
+  
+     */
+    const duplicateNumberArray = [2, 3, 2, 5, 6, 4, 5, 6];
+    const duplicateChecker = (arr) => {
+        const uniqueArray = arr.filter((num, index) => arr.indexOf(num) === index);
+        return uniqueArray || [];
+    };
+    console.log(duplicateChecker(duplicateNumberArray));
+    // using loop
+    const duplicateCheckerByLoop = (arr) => {
+        let uniqueArray = [];
+        for (const element of arr) {
+            if (!uniqueArray.includes(element)) {
+                uniqueArray.push(element);
+            }
+        }
+        return uniqueArray;
+    };
+    console.log(duplicateCheckerByLoop(duplicateNumberArray));
+    // find a new thing that's more efecients
+    const setUniqueArray = (arr) => {
+        return [...new Set(arr)];
+    };
+    console.log(setUniqueArray(duplicateNumberArray));
 }
