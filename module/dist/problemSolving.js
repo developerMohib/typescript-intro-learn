@@ -71,11 +71,37 @@
                 return Object.assign(Object.assign({}, person), { age: newAge });
             }
             else {
-                // chat gpt ke bollam undefiend kno ase then bollo eikhane return lagbe, 
+                // chat gpt ke bollam undefiend kno ase then bollo eikhane return lagbe,
                 return person;
             }
         });
         return resultBhai;
     }
     console.log(bhaiKeKhujoo(abulBhaiKeKhujo, "abul bhai", 50));
+    /**
+     * 6.Task: Array Reduction
+  Create an array of numbers. Write a function that uses the reduce method to calculate the sum of all even numbers in the array.
+  
+     */
+    const numberArray = [2, 3, 4, 5, 6, 7];
+    const total = numberArray.reduce((accum, currentValue) => {
+        return accum + currentValue;
+    }, 0);
+    console.log("total", total);
+    /**
+    *
+    7. Task: Leap Year Checker
+  Write a function that determines whether a given year is a leap year.
+  Example: Happy New Year
+    */
+    const getYear = 2020;
+    const leapYearChecker = (year) => {
+        if (year / 4 === 0) {
+            return "Happy new year";
+        }
+        else {
+            return "Not leap Year";
+        }
+    };
+    console.log(leapYearChecker(getYear));
 }
