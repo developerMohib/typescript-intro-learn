@@ -136,4 +136,38 @@
         return [...new Set(arr)];
     };
     console.log(setUniqueArray(duplicateNumberArray));
+    /**
+     * 09. Task: Find Maximum Value:
+  Write a function that takes an array of numbers and returns the maximum value.
+  */
+    // array taken from up
+    const maxValueFind = (arr) => {
+        let max = arr[0];
+        for (let element of arr) {
+            if (element > max) {
+                max = element;
+            }
+        }
+        return max;
+    };
+    console.log("max", maxValueFind(duplicateNumberArray));
+    const students = [
+        {
+            name: "alif",
+            grades: "4.50",
+        },
+        {
+            name: "tarif",
+            grades: "4.40",
+        },
+        {
+            name: "salman",
+            grades: "4.60",
+        },
+    ];
+    function studentDescending(student) {
+        const studentResult = student.sort((a, b) => Number(a.grades) - Number(b.grades));
+        return studentResult;
+    }
+    console.log("student", studentDescending(students));
 }

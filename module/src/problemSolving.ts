@@ -189,5 +189,50 @@ Create an array of numbers with some duplicate values. Write a function to filte
   const setUniqueArray = (arr: number[]): number[] => {
     return [...new Set(arr)];
   };
-  console.log(setUniqueArray(duplicateNumberArray))
+  console.log(setUniqueArray(duplicateNumberArray));
+
+  /**
+   * 09. Task: Find Maximum Value:
+Write a function that takes an array of numbers and returns the maximum value.
+*/
+  // array taken from up
+  const maxValueFind = (arr: number[]): number => {
+    let max: number = arr[0];
+    for (let element of arr) {
+      if (element > max) {
+        max = element;
+      }
+    }
+    return max;
+  };
+  console.log("max", maxValueFind(duplicateNumberArray));
+  /** 
+10.Task: Advanced Sorting
+Create an array of objects representing students with 'name' and 'grades' properties. Write a function to sort the students by average grade in descending order.
+   */
+  interface IStudent {
+    name: string;
+    grades: string;
+  }
+  const students: IStudent[] = [
+    {
+      name: "alif",
+      grades: "4.50",
+    },
+    {
+      name: "tarif",
+      grades: "4.40",
+    },
+    {
+      name: "salman",
+      grades: "4.60",
+    },
+  ];
+  function studentDescending(student: IStudent[]): IStudent[] {
+    const studentResult = student.sort(
+      (a, b) => Number(a.grades) - Number(b.grades)
+    );
+    return studentResult;
+  }
+  console.log("student", studentDescending(students));
 }
