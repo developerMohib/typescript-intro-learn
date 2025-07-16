@@ -229,8 +229,8 @@ Create an array of objects representing students with 'name' and 'grades' proper
     },
   ];
   function studentDescending(student: IStudent[]): IStudent[] {
-    const studentResult = student.sort(
-      (a, b) => Number(a.grades) - Number(b.grades)
+    const studentResult = student.slice().sort(
+      (a, b) => Number(b.grades) - Number(a.grades)
     );
     return studentResult;
   }

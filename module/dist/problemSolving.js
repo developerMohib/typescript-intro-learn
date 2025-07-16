@@ -166,7 +166,7 @@
         },
     ];
     function studentDescending(student) {
-        const studentResult = student.sort((a, b) => Number(a.grades) - Number(b.grades));
+        const studentResult = student.slice().sort((a, b) => Number(b.grades) - Number(a.grades));
         return studentResult;
     }
     console.log("student", studentDescending(students));
